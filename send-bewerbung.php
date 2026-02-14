@@ -1,12 +1,10 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 
-$empfaenger = 'zenova@play-zenova.de';
-$betreff = 'Bewerbung Zenova';
-
-// Autoloader für PHPMailer (wenn mit Composer installiert)
-if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-  require_once __DIR__ . '/vendor/autoload.php';
+// Discord Webhook Konfiguration laden
+$discordConfig = [];
+if (file_exists(__DIR__ . '/discord_webhook_config.php')) {
+  $discordConfig = include __DIR__ . '/discord_webhook_config.php';
 }
 
 // kleine Hilfsfunktion: säubern und Länge begrenzen
@@ -35,61 +33,76 @@ if (strlen($vorstellung) < 50) {
   exit;
 }
 
-$nachricht = "Neue Bewerbung über die Zenova-Website\n\n";
-$nachricht .= "--- Vorstellung ---\n" . $vorstellung . "\n\n";
-$nachricht .= "--- Erfahrungen ---\n" . $erfahrung . "\n\n";
-$nachricht .= "--- Warum sollten wir dich nehmen? ---\n" . $warum . "\n\n";
-$nachricht .= "--- Bewerbung als ---\n" . $rolle . "\n\n";
-$nachricht .= "--- Discordname ---\n" . $discord . "\n";
-
-// From-Adresse des Servers verwenden (vermeidet viele SPF/DMARC-Probleme)
-$fromAddress = 'Zenova Web <noreply@play-zenova.de>';
-$header = "From: " . $fromAddress . "\r\n";
-$header .= "Reply-To: " . $empfaenger . "\r\n";
-$header .= "MIME-Version: 1.0\r\n";
-$header .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$header .= "Content-Transfer-Encoding: 8bit\r\n";
-
-// Versuche PHPMailer/SMTP wenn konfiguriert
-$smtpConfig = [];
-if (file_exists(__DIR__ . '/smtp_config.php')) {
-  $smtpConfig = include __DIR__ . '/smtp_config.php';
-}
-
+// Versuche Bewerbung zu Discord zu senden
 $sentOk = false;
-// PHPMailer verwenden, falls installiert und gewünscht
-if (!empty($smtpConfig['use_smtp']) && class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
-  try {
-    $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
-    // Server-Einstellungen
-    if (!empty($smtpConfig['use_smtp'])) {
-      $mail->isSMTP();
-      $mail->Host = $smtpConfig['host'];
-      $mail->SMTPAuth = true;
-      $mail->Username = $smtpConfig['username'];
-      $mail->Password = $smtpConfig['password'];
-      $mail->SMTPSecure = !empty($smtpConfig['secure']) ? $smtpConfig['secure'] : '';
-      $mail->Port = !empty($smtpConfig['port']) ? $smtpConfig['port'] : 587;
-    }
 
-    $fromEmail = !empty($smtpConfig['from_email']) ? $smtpConfig['from_email'] : 'noreply@play-zenova.de';
-    $fromName = !empty($smtpConfig['from_name']) ? $smtpConfig['from_name'] : 'Zenova Web';
+if (!empty($discordConfig['webhook_url'])) {
+  // Discord Embed erstellen
+  $embed = [
+    'title' => '📝 Neue Bewerbung eingegangen',
+    'color' => $discordConfig['embed_color'] ?? 3447003,
+    'fields' => [
+      [
+        'name' => '👤 Discord Name',
+        'value' => $discord,
+        'inline' => true
+      ],
+      [
+        'name' => '🎯 Position',
+        'value' => $rolle,
+        'inline' => true
+      ],
+      [
+        'name' => '📖 Vorstellung',
+        'value' => $vorstellung,
+        'inline' => false
+      ],
+      [
+        'name' => '💪 Erfahrungen',
+        'value' => $erfahrung,
+        'inline' => false
+      ],
+      [
+        'name' => '⭐ Warum wir dich nehmen sollten',
+        'value' => $warum,
+        'inline' => false
+      ]
+    ],
+    'footer' => [
+      'text' => 'Zenova Bewerbungsformular'
+    ],
+    'timestamp' => date('c')
+  ];
 
-    $mail->setFrom($fromEmail, $fromName);
-    $mail->addAddress($empfaenger);
-    $mail->Subject = $betreff;
-    $mail->Body = $nachricht;
-    $mail->CharSet = 'UTF-8';
+  $payload = [
+    'username' => $discordConfig['server_name'] ?? 'Zenova',
+    'embeds' => [$embed]
+  ];
 
-    $sentOk = $mail->send();
-  } catch (Exception $e) {
-    error_log('Bewerbung: PHPMailer Fehler: ' . $e->getMessage());
+  $ch = curl_init($discordConfig['webhook_url']);
+  curl_setopt_array($ch, [
+    CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => json_encode($payload),
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_TIMEOUT => 10
+  ]);
+
+  $response = curl_exec($ch);
+  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  curl_close($ch);
+
+  // HTTP 204 (No Content) ist auch OK bei Discord Webhooks
+  if (($httpCode >= 200 && $httpCode < 300) || $httpCode == 204) {
+    $sentOk = true;
+    error_log('Bewerbung erfolgreich zu Discord versendet (HTTP ' . $httpCode . ')');
+  } else {
+    error_log('Bewerbung Discord: HTTP ' . $httpCode . ' - ' . $response);
     $sentOk = false;
   }
 } else {
-  // Fallback auf PHP mail()
-  $gesendet = @mail($empfaenger, $betreff, $nachricht, $header);
-  $sentOk = (bool)$gesendet;
+  error_log('Bewerbung: Discord Webhook URL nicht konfiguriert');
+  $sentOk = false;
 }
 
 if ($sentOk) {
