@@ -1,0 +1,20 @@
+# Ignore files with sensitive credentials
+smtp_config.php
+.env
+.env.local
+
+# Composer dependencies
+vendor/
+composer.lock
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+error_log
+*.log

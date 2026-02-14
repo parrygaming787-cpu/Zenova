@@ -14,7 +14,7 @@
   <header class="header">
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <img src="images/zenova-logo.png" alt="Zenova" class="logo-img">
+        <img src="zenova-logo.png" alt="Zenova" class="logo-img">
       </a>
       <button type="button" class="menu-toggle" aria-label="Menü öffnen">
         <span></span>
@@ -26,6 +26,10 @@
         <ul class="nav-list">
           <li><a href="index.html" class="nav-link active">Start</a></li>
           <li><a href="team.html" class="nav-link">Das Team</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="galerie.html" class="nav-link">Galerie</a></li>
+          <li><a href="stats.html" class="nav-link">Statistiken</a></li>
           <li><a href="regelwerk.html" class="nav-link">Regelwerk</a></li>
           <li><a href="bewerbung.html" class="nav-link">Bewerbung</a></li>
         </ul>
@@ -34,18 +38,147 @@
   </header>
 
   <main>
-    <section class="hero hero--minecraft">
+    <section class="hero hero--minecraft" id="hero-scroll">
+      <video autoplay muted loop class="hero-video">
+        <source src="images/minecraft-bg.mp4" type="video/mp4">
+      </video>
+      <div class="hero-particles" id="particles"></div>
       <div class="hero-content">
-        <h1>Entdecke unseren Server</h1>
+        <h1 class="hero-title">Entdecke unseren Server</h1>
         <a href="index.html#mitmachen" class="btn-hero">Los Geht's</a>
       </div>
+      <div class="mouse-follow" id="mouseFollow"></div>
     </section>
 
     <section id="mitmachen" class="section section-cta">
       <div class="container">
         <h2>Wie mache ich mit?</h2>
-        <p class="section-lead">Tritt unserem Discord bei!</p>
+        <p class="section-lead">Tritt unserem Discord bei und werde Teil der Community!</p>
         <a href="https://discord.gg/JVXMmpP8Y2" class="btn-discord" target="_blank" rel="noopener">Discord beitreten</a>
+      </div>
+    </section>
+
+    <section class="section section-about-server">
+      <div class="container">
+        <h2 class="section-title">Über den Zenova Server</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon">🌍</div>
+            <h3>Neue Welt</h3>
+            <p>Trete in eine völlig neue Minecraft-Welt ein und erlebe epische Adventures mit einer engagierten Community.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">⚙️</div>
+            <h3>Optimiert</h3>
+            <p>Unser Server läuft auf modernster Hardware mit optimierter Performance für das beste Spielerlebnis.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">🎯</div>
+            <h3>Zielgerichtet</h3>
+            <p>Mit klaren Zielen und regelmäßigen Events arbeiten wir zusammen an spektakulären Projekten.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">🛡️</div>
+            <h3>Sicher & Fair</h3>
+            <p>Strenge Moderationsrichtlinien und faire Spielregeln für ein angenehmes Spielumfeld für alle.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">🚀</div>
+            <h3>Wachstumsorientiert</h3>
+            <p>Der Server wird ständig erweitert und verbessert basierend auf dem Feedback unserer Community.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">👥</div>
+            <h3>Aktive Community</h3>
+            <p>Treffe Spieler aus verschiedenen Teilen und baue dauerhafte Freundschaften im Spiel.</p>
+          </div>
+        </div>
+        <div class="about-details">
+          <h3>Serverinformationen</h3>
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="detail-label">Version:</span>
+              <span class="detail-value">1.20.x</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Spielmodus:</span>
+              <span class="detail-value">Survival</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Schwierigkeit:</span>
+              <span class="detail-value">Normal</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">PvP:</span>
+              <span class="detail-value">Reguliert</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <div class="container">
+        <h2 class="section-title">Was macht Zenova besonders?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎮</div>
+            <h3 class="feature-title">Großes Community Event</h3>
+            <p class="feature-text">Regelmäßige Events, Tournaments und Community-Treffen auf Discord.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🏗️</div>
+            <h3 class="feature-title">Erstaunliche Bauten</h3>
+            <p class="feature-text">Bewundere magische Spawn-Areas und kreative Spieler-Bauten.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3 class="feature-title">Freundliches Team</h3>
+            <p class="feature-text">Erfahrene Moderatoren und unterstützender Support rund um die Uhr.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Schneller Server</h3>
+            <p class="feature-text">Optimierte Server-Performance für das beste Spiel-Erlebnis.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎁</div>
+            <h3 class="feature-title">Große Rewards</h3>
+            <p class="feature-text">Gewinne Ränge, Items und exklusive Rewards bei Events.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌟</div>
+            <h3 class="feature-title">Laufende Updates</h3>
+            <p class="feature-text">Ständig neue Features, Biome und Inhalte für dich!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-quick-links">
+      <div class="container">
+        <h2 class="section-title">Schnellzugriffe</h2>
+        <div class="quick-links-grid">
+          <a href="team.html" class="quick-link-card">
+            <div class="quick-link-icon">👥</div>
+            <h3>Das Team kennenlernen</h3>
+            <p>Lerne die Köpfe hinter Zenova kennen</p>
+          </a>
+          <a href="news.html" class="quick-link-card">
+            <div class="quick-link-icon">📰</div>
+            <h3>Aktuelle News</h3>
+            <p>Bleib auf dem Laufenden mit den neuesten Updates</p>
+          </a>
+          <a href="events.html" class="quick-link-card">
+            <div class="quick-link-icon">🎪</div>
+            <h3>Events ansehen</h3>
+            <p>Finde heraus, was bald auf dich wartet</p>
+          </a>
+          <a href="bewerbung.html" class="quick-link-card">
+            <div class="quick-link-icon">✍️</div>
+            <h3>Jetzt bewerben!</h3>
+            <p>Werde Teil des Zenova-Teams</p>
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -60,9 +193,11 @@
         <a href="#" aria-label="X">X</a>
         <a href="#" aria-label="TikTok">TikTok</a>
       </div>
-      <p class="footer-copy">&copy; 2026 by Zenova</p>
+      <p class="footer-copy">&copy; 2026 by Zenova | <a href="impressum.html">Impressum</a></p>
     </div>
   </footer>
+
+  <button id="scrollToTop" class="scroll-to-top" aria-label="Nach oben scrollen" title="Nach oben">↑</button>
 
   <script>
     document.querySelector('.menu-toggle').addEventListener('click', function() {
@@ -71,6 +206,53 @@
     document.querySelector('.menu-close').addEventListener('click', function() {
       document.body.classList.remove('menu-open');
     });
+
+    // Parallax Scrolling Effect
+    window.addEventListener('scroll', function() {
+      const heroScroll = document.getElementById('hero-scroll');
+      if (heroScroll) {
+        const scrollPosition = window.scrollY;
+        document.querySelectorAll('[data-parallax]').forEach(el => {
+          const speed = el.getAttribute('data-parallax');
+          el.style.transform = 'translateY(' + (scrollPosition * speed) + 'px)';
+        });
+      }
+    });
+
+    // Particle System
+    function createParticles() {
+      const container = document.getElementById('particles');
+      if (!container) return;
+      container.innerHTML = '';
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.width = Math.random() * 4 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 2 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+        container.appendChild(particle);
+      }
+    }
+    createParticles();
+
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    if (scrollToTopBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add('visible');
+        } else {
+          scrollToTopBtn.classList.remove('visible');
+        }
+      });
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   </script>
 </body>
 </html>

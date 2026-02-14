@@ -25,6 +25,10 @@
         <ul class="nav-list">
           <li><a href="index.html" class="nav-link">Start</a></li>
           <li><a href="team.html" class="nav-link active">Das Team</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="galerie.html" class="nav-link">Galerie</a></li>
+          <li><a href="stats.html" class="nav-link">Statistiken</a></li>
           <li><a href="regelwerk.html" class="nav-link">Regelwerk</a></li>
           <li><a href="bewerbung.html" class="nav-link">Bewerbung</a></li>
         </ul>
@@ -40,48 +44,91 @@
     </section>
     <section class="section section-page section-alt section--full">
       <div class="container">
-        <p class="section-text">Hier findest du unser Team.</p>
+        <p class="section-text">Lerne unser großartiges Team kennen. Klicke auf ein Mitglied für mehr Details!</p>
         <div class="team-grid">
-          <div class="team-card">
+          <div class="team-card team-card-hover" data-team-id="1">
             <img src="images/team-kyo.png" alt="Kyo" class="team-img team-img--head">
-            <p class="team-name">Kyo</p>
-            <p class="team-role">Owner</p>
+            <div class="team-info">
+              <h3 class="team-name">Kyo</h3>
+              <p class="team-role">Owner</p>
+              <p class="team-discord">@o0kyo0o</p>
+            </div>
           </div>
-          <div class="team-card">
+
+          <div class="team-card team-card-hover" data-team-id="2">
             <img src="images/team2.jpg" alt="TitaniumOreZ" class="team-img">
-            <p class="team-name">TitaniumOreZ</p>
-            <p class="team-role">Host</p>
-            <p class="team-role">Stellvertreter</p>
+            <div class="team-info">
+              <h3 class="team-name">TitaniumOreZ</h3>
+              <p class="team-role">Host & Admin</p>
+              <p class="team-discord">@titaniumorez</p>
+            </div>
           </div>
-          <div class="team-card">
+
+          <div class="team-card team-card-hover" data-team-id="3">
             <img src="images/team3.jpg" alt="SpiffyBead" class="team-img">
-            <p class="team-name">SpiffyBead</p>
-            <p class="team-role">Stellvertreter</p>
+            <div class="team-info">
+              <h3 class="team-name">SpiffyBead</h3>
+              <p class="team-role">Stellvertreter</p>
+              <p class="team-discord">@siffybead</p>
+            </div>
           </div>
-          <div class="team-card">
+
+          <div class="team-card team-card-hover" data-team-id="4">
             <img src="images/team4.jpg" alt="PerryDasSchnabeltier" class="team-img">
-            <p class="team-name">PerryDasSchnabeltier</p>
-            <p class="team-role">Developer</p>
+            <div class="team-info">
+              <h3 class="team-name">PerryDasSchnabeltier</h3>
+              <p class="team-role">Developer</p>
+              <p class="team-discord">@PerryDasSchnabeltier</p>
+            </div>
           </div>
-          <div class="team-card">
-            <img src="images/team5.jpg" alt="Moutain_goat" class="team-img">
-            <p class="team-name">Moutain_goat</p>
-            <p class="team-role">Head Moderator</p>
+
+          <div class="team-card team-card-hover" data-team-id="5">
+            <img src="images/team5.jpg" alt="Mountain_goat" class="team-img">
+            <div class="team-info">
+              <h3 class="team-name">Mountain_goat</h3>
+              <p class="team-role">Head Moderator</p>
+              <p class="team-discord">@kiki_frosch_19154</p>
+            </div>
           </div>
-          <div class="team-card">
+
+          <div class="team-card team-card-hover" data-team-id="6">
             <img src="images/team6.jpg" alt="Flix_Jack" class="team-img">
-            <p class="team-name">Flix_Jack</p>
-            <p class="team-role">Moderator</p>
+            <div class="team-info">
+              <h3 class="team-name">Flix_Jack</h3>
+              <p class="team-role">Moderator</p>
+              <p class="team-discord">@flix_jack</p>
+            </div>
           </div>
-          <div class="team-card">
+
+          <div class="team-card team-card-hover" data-team-id="7">
             <img src="images/team7.jpg" alt="TechiRusch" class="team-img">
-            <p class="team-name">TechiRusch</p>
-            <p class="team-role">Moderator</p>
+            <div class="team-info">
+              <h3 class="team-name">TechiRusch</h3>
+              <p class="team-role">Moderator</p>
+              <p class="team-discord">@techirusch</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Team Member Modal -->
+  <div id="teamModal" class="modal team-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Schließen">×</button>
+      <div class="team-modal-header">
+        <img id="modalTeamImage" src="" alt="" class="team-modal-image">
+      </div>
+      <div class="modal-body">
+        <h2 id="modalTeamName"></h2>
+        <p id="modalTeamRole" class="modal-team-role"></p>
+        <p id="modalTeamSince" class="modal-team-since"></p>
+        <p id="modalTeamBio" class="modal-team-bio"></p>
+        <button class="btn-discord-cta" onclick="window.open('https://discord.gg/JVXMmpP8Y2', '_blank')">Im Discord kontaktieren</button>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer-inner">
@@ -93,7 +140,7 @@
         <a href="#" aria-label="X">X</a>
         <a href="#" aria-label="TikTok">TikTok</a>
       </div>
-      <p class="footer-copy">&copy; 2026 by Zenova</p>
+      <p class="footer-copy">&copy; 2026 by Zenova | <a href="impressum.html">Impressum</a></p>
     </div>
   </footer>
 
@@ -103,6 +150,101 @@
     });
     document.querySelector('.menu-close').addEventListener('click', function() {
       document.body.classList.remove('menu-open');
+    });
+
+    // Team Member Details
+    const teamDetails = {
+      1: {
+        name: "Kyo",
+        role: "Owner & Gründer",
+        since: "Dabei seit 2024",
+        bio: "Kyo ist der Gründer und Leiter von Zenova. Mit seiner Vision hat er eine großartige Community erschaffen. Er ist verantwortlich für die Overall-Richtung des Servers und kümmert sich um die Schnittstelle zu den Spielern. Kyo ist immer offen für neues Feedback und arbeitet ständig daran, Zenova zu verbessern.",
+        image: "images/team-kyo.png"
+      },
+      2: {
+        name: "TitaniumOreZ",
+        role: "Host & Stellvertreter",
+        since: "Dabei seit 2024",
+        bio: "TitaniumOreZ ist der Server-Host und technische Stellvertreter. Er kümmert sich um die technische Infrastruktur, Server-Stabilität und Performance. Mit seinen Fähigkeiten sorgt er dafür, dass der Server immer optimal läuft. Er ist auch der erste Ansprechpartner für technische Fragen.",
+        image: "images/team2.jpg"
+      },
+      3: {
+        name: "SpiffyBead",
+        role: "Stellvertreter",
+        since: "Dabei seit 2025",
+        bio: "SpiffyBead ist ein aktives Mitglied der Stellvertretung. Er unterstützt Kyo und TitaniumOreZ bei der Verwaltung des Servers. SpiffyBead ist bekannt für seine freundliche Art und sein starkes Engagement für die Community. Er ist gerne dein Ansprechpartner bei Fragen oder Problemen.",
+        image: "images/team3.jpg"
+      },
+      4: {
+        name: "PerryDasSchnabeltier",
+        role: "Developer",
+        since: "Dabei seit 2024",
+        bio: "PerryDasSchnabeltier ist unser Lead Developer und trägt maßgeblich zur technischen Entwicklung des Servers bei. Er programmiert neue Features, entwickelt Custom-Plugins und sorgt für innovative Spielmechaniken. Perry ist ständig daran, das Spiel-Erlebnis zu verbessern.",
+        image: "images/team4.jpg"
+      },
+      5: {
+        name: "Mountain_goat",
+        role: "Head Moderator",
+        since: "Dabei seit 2024",
+        bio: "Mountain_goat leitet das Moderations-Team und sorgt für eine respektvolle Community. Er koordiniert die Moderatoren, setzt Regeln durch und kümmert sich um die Konfliktlösung. Mountain_goat ist fair, gerecht und immer hilfsbereit. Bei Problemen kannst du dich an ihn wenden.",
+        image: "images/team5.jpg"
+      },
+      6: {
+        name: "Flix_Jack",
+        role: "Moderator",
+        since: "Dabei seit 2025",
+        bio: "Flix_Jack ist ein engagierter Moderator des Servers. Er patrouilliert die verschiedenen Bereiche, hilft neuen Spielern und sorgt für Ordnung. Flix_Jack ist freundlich, zuverlässig und stellt sicher, dass alle Regeln eingehalten werden. Du kannst ihn gerne ansprechen!",
+        image: "images/team6.jpg"
+      },
+      7: {
+        name: "TechiRusch",
+        role: "Moderator",
+        since: "Dabei seit 2025",
+        bio: "TechiRusch ist ein aktiver Moderator im Zenova-Team. Er unterstützt das Moderation-Team bei der Benutzerverwaltung und Regelumsetzung. TechiRusch ist hilfsbereit, aufmerksam und sorgt für ein sicheres Spielumfeld. Bei Fragen oder Problemen stehe ich dir gerne zur Seite!",
+        image: "images/team7.jpg"
+      }
+    };
+
+    const teamModal = document.getElementById('teamModal');
+    const modalClose = document.querySelector('.modal-close');
+
+    function openTeamModal(teamId) {
+      const member = teamDetails[teamId];
+      if (!member) return;
+
+      document.getElementById('modalTeamImage').src = member.image;
+      document.getElementById('modalTeamImage').alt = member.name;
+      document.getElementById('modalTeamName').textContent = member.name;
+      document.getElementById('modalTeamRole').textContent = member.role;
+      document.getElementById('modalTeamSince').textContent = member.since;
+      document.getElementById('modalTeamBio').textContent = member.bio;
+
+      teamModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeTeamModal() {
+      teamModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.team-card-hover').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const teamId = card.dataset.teamId;
+        openTeamModal(teamId);
+      });
+    });
+
+    modalClose.addEventListener('click', closeTeamModal);
+
+    teamModal.addEventListener('click', (e) => {
+      if (e.target === teamModal) closeTeamModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && teamModal.classList.contains('active')) {
+        closeTeamModal();
+      }
     });
   </script>
 </body>

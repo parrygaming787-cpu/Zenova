@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News | Zenova</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/zenova-logo.png" alt="Zenova" class="logo-img">
+      </a>
+      <button type="button" class="menu-toggle" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <button type="button" class="menu-close" aria-label="Menü schließen">×</button>
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Start</a></li>
+          <li><a href="team.html" class="nav-link">Das Team</a></li>
+          <li><a href="news.html" class="nav-link active">News</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="galerie.html" class="nav-link">Galerie</a></li>
+          <li><a href="stats.html" class="nav-link">Statistiken</a></li>
+          <li><a href="regelwerk.html" class="nav-link">Regelwerk</a></li>
+          <li><a href="bewerbung.html" class="nav-link">Bewerbung</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <h1>News & Updates</h1>
+      </div>
+    </section>
+    <section class="section section-page section-alt section--full">
+      <div class="container container--text">
+        <p class="section-text">Bleib auf dem Laufenden mit den neuesten Updates vom Zenova Server!</p>
+
+        <div class="news-grid">
+          <article class="news-card" data-news-id="1">
+            <div class="news-date">14. Feb 2026</div>
+            <h3 class="news-title">Neue Website Features!</h3>
+            <p class="news-excerpt">Wir haben unsere Website mit neuen Features ausgestattet...</p>
+            <button class="news-btn">Mehr lesen →</button>
+          </article>
+
+          <article class="news-card" data-news-id="2">
+            <div class="news-date">10. Feb 2026</div>
+            <h3 class="news-title">Server Update 2.1 Release</h3>
+            <p class="news-excerpt">Das große Update 2.1 mit neuen Mobs und Blöcken...</p>
+            <button class="news-btn">Mehr lesen →</button>
+          </article>
+
+          <article class="news-card" data-news-id="3">
+            <div class="news-date">05. Feb 2026</div>
+            <h3 class="news-title">Community Tournament Ergebnisse</h3>
+            <p class="news-excerpt">Das PvP Tournament war ein voller Erfolg!</p>
+            <button class="news-btn">Mehr lesen →</button>
+          </article>
+
+          <article class="news-card" data-news-id="4">
+            <div class="news-date">01. Feb 2026</div>
+            <h3 class="news-title">Neuer Build im Showcase</h3>
+            <p class="news-excerpt">Das atemberaubende neue Spawn-Areal wurde fertiggestellt...</p>
+            <button class="news-btn">Mehr lesen →</button>
+          </article>
+
+          <article class="news-card" data-news-id="5">
+            <div class="news-date">28. Jan 2026</div>
+            <h3 class="news-title">Willkommen neue Team-Mitglieder!</h3>
+            <p class="news-excerpt">Wir heißen Moderatoren und Builder willkommen!</p>
+            <button class="news-btn">Mehr lesen →</button>
+          </article>
+
+          <article class="news-card" data-news-id="6">
+            <div class="news-date">25. Jan 2026</div>
+            <h3 class="news-title">Wartungsarbeiten abgeschlossen</h3>
+            <p class="news-excerpt">Der Server ist wieder online. Alle Daten gesichert.</p>
+            <button class="news-btn">Mehr lesen →</button>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- News Modal -->
+  <div id="newsModal" class="modal news-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Schließen">×</button>
+      <div class="modal-header">
+        <p id="modalNewsDate" class="modal-date"></p>
+        <h2 id="modalNewsTitle"></h2>
+      </div>
+      <div class="modal-body">
+        <p id="modalNewsContent" class="modal-news-content"></p>
+        <div id="modalNewsImage" class="modal-image"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Zenova</p>
+      <a href="mailto:zenova@play-zenova.de" class="footer-email">zenova@play-zenova.de</a>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 by Zenova | <a href="impressum.html">Impressum</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.body.classList.add('menu-open');
+    });
+    document.querySelector('.menu-close').addEventListener('click', function() {
+      document.body.classList.remove('menu-open');
+    });
+
+    // News Daten mit Details
+    const newsDetails = {
+      1: {
+        title: "Neue Website Features!",
+        date: "14. Feb 2026",
+        content: "Wir haben unsere Website mit neuen Features ausgestattet: Galerie, Event-Kalender und Statistiken sind jetzt live! Die neue Galerie ermöglicht dir einen Blick auf die schönsten Server-Momente mit interaktiver Lightbox. Der Event-Kalender zeigt alle anstehenden Events übersichtlich an. Mit dem neuen Statistik-System kannst du die Top-Spieler in verschiedenen Kategorien sehen und dich mit ihnen messen.",
+        image: "images/gallery-1.jpg"
+      },
+      2: {
+        title: "Server Update 2.1 Release",
+        date: "10. Feb 2026",
+        content: "Das große Update 2.1 mit neuen Mobs, Blöcken und Performance-Verbesserungen ist jetzt verfügbar! Dieses Update bringt über 50 neue Features mit sich. Die neuen Mobs bieten neue Herausforderungen und Abenteuer. Mit den optimierten Performance-Einstellungen läuft der Server jetzt noch flüssiger. Alle neuen Blöcke sind ab sofort im Creative-Modus verfügbar.",
+        image: ""
+      },
+      3: {
+        title: "Community Tournament Ergebnisse",
+        date: "05. Feb 2026",
+        content: "Das PvP Tournament war ein voller Erfolg mit über 40 Teilnehmern! Die Top 3 Platzierungen sind: 1. Shadow_Warrior, 2. IceKnight, 3. FireMage. Es waren spannende Kämpfe, viele gute Momente und tolle Plays. Allen Teilnehmern danken wir für ihr Engagement. Das nächste Tournament findet am 18. Februar statt.",
+        image: ""
+      },
+      4: {
+        title: "Neuer Build im Showcase freigegeben",
+        date: "01. Feb 2026",
+        content: "Das atemberaubende neue Spawn-Areal wurde von unseren Buildern fertiggestellt! Es hat 3 Monate an Entwicklung gekostet und bietet jetzt einen spektakulären Einblick in die Zenova-Welt. Das neue Spawn umfasst mehrere Bereiche: eine Arena, ein Shop-Center, einen Administrationsbereich und ein Info-Portal. Alle Spieler können das neue Spawn sofort nach dem Beitreten erkunden.",
+        image: "images/gallery-4.jpg"
+      },
+      5: {
+        title: "Willkommen neue Team-Mitglieder!",
+        date: "28. Jan 2026",
+        content: "Wir heißen unsere neuen Moderatoren und Builder herzlich willkommen! Die neuen Team-Mitglieder sind: Flix_Jack als Moderator und TechiRush als Moderator. Sie bringen großes Engagement und Erfahrung mit. Herzlich Willkommen im Zenova-Team! Wir freuen uns auf die Zusammenarbeit und darauf, die Community zusammen zu unterstützen.",
+        image: ""
+      },
+      6: {
+        title: "Wartungsarbeiten abgeschlossen",
+        date: "25. Jan 2026",
+        content: "Der Server ist nach den geplanten Wartungsarbeiten wieder online! Alle Daten sind sicher gesichert und die Datenbank wurde optimiert. Die Wartung umfasste: Sicherheitsupdates, Bug-Fixes, Datenbankoptimierung und Hardware-Updates. Der Server läuft jetzt noch stabiler und schneller. Danke für euer Verständnis während der Maintenance!",
+        image: ""
+      }
+    };
+
+    const newsModal = document.getElementById('newsModal');
+    const modalClose = document.querySelector('.modal-close');
+
+    function openNewsModal(newsId) {
+      const news = newsDetails[newsId];
+      if (!news) return;
+
+      document.getElementById('modalNewsDate').textContent = news.date;
+      document.getElementById('modalNewsTitle').textContent = news.title;
+      document.getElementById('modalNewsContent').textContent = news.content;
+      
+      const imageDiv = document.getElementById('modalNewsImage');
+      if (news.image) {
+        imageDiv.innerHTML = `<img src="${news.image}" alt="${news.title}" style="width: 100%; border-radius: var(--radius); margin-top: 1.5rem;">`;
+      } else {
+        imageDiv.innerHTML = '';
+      }
+
+      newsModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeNewsModal() {
+      newsModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.news-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const newsId = e.target.closest('.news-card').dataset.newsId;
+        openNewsModal(newsId);
+      });
+    });
+
+    modalClose.addEventListener('click', closeNewsModal);
+
+    newsModal.addEventListener('click', (e) => {
+      if (e.target === newsModal) closeNewsModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && newsModal.classList.contains('active')) {
+        closeNewsModal();
+      }
+    });
+  </script>
+</body>
+</html>

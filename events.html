@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | Zenova</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/zenova-logo.png" alt="Zenova" class="logo-img">
+      </a>
+      <button type="button" class="menu-toggle" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <button type="button" class="menu-close" aria-label="Menü schließen">×</button>
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Start</a></li>
+          <li><a href="team.html" class="nav-link">Das Team</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+          <li><a href="events.html" class="nav-link active">Events</a></li>
+          <li><a href="galerie.html" class="nav-link">Galerie</a></li>
+          <li><a href="stats.html" class="nav-link">Statistiken</a></li>
+          <li><a href="regelwerk.html" class="nav-link">Regelwerk</a></li>
+          <li><a href="bewerbung.html" class="nav-link">Bewerbung</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <h1>Events</h1>
+      </div>
+    </section>
+    <section class="section section-page section-alt section--full">
+      <div class="container">
+        <p class="section-text">Anstehende Events und wichtige Daten im Überblick! Klicke auf ein Event für mehr Details.</p>
+
+        <div class="event-list">
+            <div class="event-card event-card--upcoming" data-event-id="1" data-date="18-02-2026">
+              <div class="event-type">🎮 Tournament</div>
+              <h3 class="event-title">PvP Kampf-Arena</h3>
+              <p class="event-date">📅 18. Feb 2026 • 19:00 Uhr</p>
+              <p class="event-description">Großes PvP Tournament mit tollen Preisen!</p>
+              <button class="event-btn">Mehr Info</button>
+            </div>
+
+            <div class="event-card event-card--upcoming" data-event-id="2" data-date="25-02-2026">
+              <div class="event-type">🏗️ Building Contest</div>
+              <h3 class="event-title">Kreatives Bauen - Mittelalter</h3>
+              <p class="event-date">📅 25. Feb - 10. Mär 2026</p>
+              <p class="event-description">Zeige deine besten Bauten im Mittelalter-Stil.</p>
+              <button class="event-btn">Mehr Info</button>
+            </div>
+
+            <div class="event-card event-card--upcoming" data-event-id="3" data-date="01-03-2026">
+              <div class="event-type">🎊 Community Event</div>
+              <h3 class="event-title">Großes Server-Festival</h3>
+              <p class="event-date">📅 01. Mär 2026 • 18:00 Uhr</p>
+              <p class="event-description">Mini-Games, Preise verteilen und vieles mehr!</p>
+              <button class="event-btn">Mehr Info</button>
+            </div>
+
+            <div class="event-card" data-event-id="4" data-date="20-02-2026">
+              <div class="event-type">🔧 Wartung</div>
+              <h3 class="event-title">Server Wartungsarbeiten</h3>
+              <p class="event-date">📅 20. Feb 2026 • 02:00 - 04:00 Uhr</p>
+              <p class="event-description">Geplante Wartung für Bug-Fixes und Performance.</p>
+              <button class="event-btn">Mehr Info</button>
+            </div>
+
+            <div class="event-card" data-event-id="5" data-date="05-03-2026">
+              <div class="event-type">📢 Ankündigung</div>
+              <h3 class="event-title">Update 2.2 Teaser</h3>
+              <p class="event-date">📅 05. Mär 2026</p>
+              <p class="event-description">Großes Update kommt bald mit neuen Features!</p>
+              <button class="event-btn">Mehr Info</button>
+            </div>
+
+            <div class="event-card" data-event-id="6" data-date="recurring">
+              <div class="event-type">🎤 Community</div>
+              <h3 class="event-title">Community Voice-Chat</h3>
+              <p class="event-date">📅 Jeden Freitag • 20:00 Uhr</p>
+              <p class="event-description">Wöchentlicher Community-Call auf Discord.</p>
+              <button class="event-btn">Mehr Info</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Event Modal -->
+  <div id="eventModal" class="modal event-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Schließen">×</button>
+      <div class="modal-header">
+        <span id="modalEventType" class="modal-event-type"></span>
+        <h2 id="modalEventTitle"></h2>
+      </div>
+      <div class="modal-body">
+        <p id="modalEventDate" class="modal-date"></p>
+        <p id="modalEventDescription" class="modal-description"></p>
+        <div id="modalEventDetails" class="modal-details"></div>
+        <button class="btn-discord-cta" onclick="window.open('https://discord.gg/JVXMmpP8Y2', '_blank')">Im Discord anmelden</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Zenova</p>
+      <a href="mailto:zenova@play-zenova.de" class="footer-email">zenova@play-zenova.de</a>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 by Zenova | <a href="impressum.html">Impressum</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.body.classList.add('menu-open');
+    });
+    document.querySelector('.menu-close').addEventListener('click', function() {
+      document.body.classList.remove('menu-open');
+    });
+
+    // Event Details
+    const eventDetails = {
+      1: {
+        type: "🎮 Tournament",
+        title: "PvP Kampf-Arena",
+        date: "18. Februar 2026 • 19:00 Uhr",
+        description: "Großes PvP Tournament mit tollen Preisen! Kostenlos für alle Spieler.",
+        details: "<strong>Regeln:</strong><br>• Best-of-3 Matches<br>• 1v1 Kämpfe<br>• Top 3 gewinnen Rewards!<br><br><strong>Anmeldung:</strong><br>Schreib dich auf Discord an! Limitiert auf 32 Spieler."
+      },
+      2: {
+        type: "🏗️ Building Contest",
+        title: "Kreatives Bauen - Mittelalter Theme",
+        date: "25. Feb - 10. März 2026",
+        description: "Zeige deine besten Bauten im Mittelalter-Stil.",
+        details: "<strong>Ablauf:</strong><br>• Baue dein Mittelalter-Projekt<br>• Das Beste wird gevotet<br>• Gewinner erhalten exklusive Rolle<br><br><strong>Teilnahme:</strong><br>Gratis für alle! 2 Wochen Zeit zum Bauen."
+      },
+      3: {
+        type: "🎊 Community Event",
+        title: "Großes Server-Festival",
+        date: "01. März 2026 • 18:00 Uhr",
+        description: "Mini-Games, Preise verteilen, Live-Build mit den Developern und vieles mehr!",
+        details: "<strong>Highlights:</strong><br>• Verschiedene Mini-Games<br>• Live Streaming<br>• Maker-Showcase<br>• Große Preisverteilung<br><br><strong>Eintritt:</strong><br>Kostenlos! Jeder kann teilnehmen."
+      },
+      4: {
+        type: "🔧 Wartung",
+        title: "Server Wartungsarbeiten",
+        date: "20. Februar 2026 • 02:00 - 04:00 Uhr",
+        description: "Geplante Wartung für Bug-Fixes und Performance-Verbesserungen.",
+        details: "<strong>Auswirkungen:</strong><br>• Server ist offline<br>• Daten werden gesichert<br>• Voraussichtliche Dauer: 2 Stunden<br><br><strong>Updates nach Wartung:</strong><br>• Bug-Fixes<br>• Performance Boost<br>• Sicherheits-Updates"
+      },
+      5: {
+        type: "📢 Ankündigung",
+        title: "Update 2.2 Teaser",
+        date: "05. März 2026",
+        description: "Großes Update kommt bald! Neue Features, neue Gegenden und vieles mehr.",
+        details: "<strong>Was kommt:</strong><br>• 5 neue Biome<br>• Neue Mobs & Block-Typen<br>• Verbesserte Performance<br>• Neue Quests<br><br><strong>Release:</strong><br>Ende März 2026"
+      },
+      6: {
+        type: "🎤 Community",
+        title: "Community Voice-Chat",
+        date: "Jeden Freitag • 20:00 Uhr",
+        description: "Wöchentlicher Community-Call auf Discord. Tausch dich mit anderen aus!",
+        details: "<strong>Themen:</strong><br>• Community Updates<br>• Feedback-Runde<br>• Q&A mit dem Team<br>• Casual-Chat<br><br><strong>Beitreten:</strong><br>Auf Discord nach dem Voice-Channel suchen!"
+      }
+    };
+
+    // Modal Funktionalität
+    const eventModal = document.getElementById('eventModal');
+    const modalClose = document.querySelector('.modal-close');
+
+    function openEventModal(eventId) {
+      const event = eventDetails[eventId];
+      if (!event) return;
+
+      document.getElementById('modalEventType').textContent = event.type;
+      document.getElementById('modalEventTitle').textContent = event.title;
+      document.getElementById('modalEventDate').textContent = '📅 ' + event.date;
+      document.getElementById('modalEventDescription').textContent = event.description;
+      document.getElementById('modalEventDetails').innerHTML = event.details;
+
+      eventModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeEventModal() {
+      eventModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.event-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const eventId = e.target.closest('.event-card').dataset.eventId;
+        openEventModal(eventId);
+      });
+    });
+
+    modalClose.addEventListener('click', closeEventModal);
+
+    eventModal.addEventListener('click', (e) => {
+      if (e.target === eventModal) closeEventModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && eventModal.classList.contains('active')) {
+        closeEventModal();
+      }
+    });
+
+    // Initialisiere Kalender
+    renderCalendar();
+  </script>
+</body>
+</html>

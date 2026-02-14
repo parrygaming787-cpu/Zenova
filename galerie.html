@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie | Zenova</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/zenova-logo.png" alt="Zenova" class="logo-img">
+      </a>
+      <button type="button" class="menu-toggle" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <button type="button" class="menu-close" aria-label="Menü schließen">×</button>
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Start</a></li>
+          <li><a href="team.html" class="nav-link">Das Team</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="galerie.html" class="nav-link active">Galerie</a></li>
+          <li><a href="stats.html" class="nav-link">Statistiken</a></li>
+          <li><a href="regelwerk.html" class="nav-link">Regelwerk</a></li>
+          <li><a href="bewerbung.html" class="nav-link">Bewerbung</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <h1>Galerie</h1>
+      </div>
+    </section>
+    <section class="section section-page section-alt section--full">
+      <div class="container">
+        <p class="section-text">Schöne Momente und beeindruckende Bauten von unserem Server!</p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item" data-lightbox="gallery">
+            <img src="images/gallery-1.jpg" alt="Spawn Arena" class="gallery-img" data-full="images/gallery-1.jpg">
+            <div class="gallery-overlay">
+              <p class="gallery-title">Spawn Arena</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-lightbox="gallery">
+            <img src="images/gallery-2.jpg" alt="Mittelalter Dorf" class="gallery-img" data-full="images/gallery-2.jpg">
+            <div class="gallery-overlay">
+              <p class="gallery-title">Mittelalter Dorf</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-lightbox="gallery">
+            <img src="images/gallery-3.jpg" alt="Nether Portal" class="gallery-img" data-full="images/gallery-3.jpg">
+            <div class="gallery-overlay">
+              <p class="gallery-title">Nether Portal</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-lightbox="gallery">
+            <img src="images/gallery-4.jpg" alt="Wasserfall" class="gallery-img" data-full="images/gallery-4.jpg">
+            <div class="gallery-overlay">
+              <p class="gallery-title">Wasserfall Landschaft</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-lightbox="gallery">
+            <img src="images/gallery-5.jpg" alt="Shop Bereich" class="gallery-img" data-full="images/gallery-5.jpg">
+            <div class="gallery-overlay">
+              <p class="gallery-title">Shop Bereich</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-lightbox="gallery">
+            <img src="images/gallery-6.jpg" alt="Himmelsgarten" class="gallery-img" data-full="images/gallery-6.jpg">
+            <div class="gallery-overlay">
+              <p class="gallery-title">Himmelsgarten</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-lightbox="gallery">
+            <img src="images/gallery-7.jpg" alt="Spieler Bauten" class="gallery-img" data-full="images/gallery-7.jpg">
+            <div class="gallery-overlay">
+              <p class="gallery-title">Community Bauten</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-lightbox="gallery">
+            <img src="images/gallery-8.jpg" alt="Sonnenuntergang" class="gallery-img" data-full="images/gallery-8.jpg">
+            <div class="gallery-overlay">
+              <p class="gallery-title">Magischer Sonnenuntergang</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" aria-label="Schließen">×</button>
+    <img id="lightbox-img" src="" alt="" class="lightbox-img">
+    <button class="lightbox-prev" aria-label="Vorheriges Bild">❮</button>
+    <button class="lightbox-next" aria-label="Nächstes Bild">❯</button>
+    <p id="lightbox-title" class="lightbox-title"></p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Zenova</p>
+      <a href="mailto:zenova@play-zenova.de" class="footer-email">zenova@play-zenova.de</a>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 by Zenova | <a href="impressum.html">Impressum</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.body.classList.add('menu-open');
+    });
+    document.querySelector('.menu-close').addEventListener('click', function() {
+      document.body.classList.remove('menu-open');
+    });
+
+    // Lightbox Funktionalität mit Animationen & Swipe
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+    let currentIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const item = galleryItems[index];
+      const img = item.querySelector('.gallery-img');
+      const title = item.querySelector('.gallery-title').textContent;
+      
+      lightboxImg.src = img.dataset.full;
+      lightboxTitle.textContent = title;
+      lightbox.classList.add('active');
+      lightboxImg.classList.add('slide-in');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightboxImg.classList.remove('slide-in');
+      lightbox.classList.add('closing');
+      setTimeout(() => {
+        lightbox.classList.remove('active', 'closing');
+      }, 300);
+      document.body.style.overflow = '';
+    }
+
+    function showNext() {
+      lightboxImg.classList.add('slide-out-left');
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        const item = galleryItems[currentIndex];
+        const img = item.querySelector('.gallery-img');
+        const title = item.querySelector('.gallery-title').textContent;
+        
+        lightboxImg.src = img.dataset.full;
+        lightboxTitle.textContent = title;
+        lightboxImg.classList.remove('slide-out-left');
+        lightboxImg.classList.add('slide-in-right');
+        
+        setTimeout(() => lightboxImg.classList.remove('slide-in-right'), 300);
+      }, 300);
+    }
+
+    function showPrev() {
+      lightboxImg.classList.add('slide-out-right');
+      setTimeout(() => {
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        const item = galleryItems[currentIndex];
+        const img = item.querySelector('.gallery-img');
+        const title = item.querySelector('.gallery-title').textContent;
+        
+        lightboxImg.src = img.dataset.full;
+        lightboxTitle.textContent = title;
+        lightboxImg.classList.remove('slide-out-right');
+        lightboxImg.classList.add('slide-in-left');
+        
+        setTimeout(() => lightboxImg.classList.remove('slide-in-left'), 300);
+      }, 300);
+    }
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => openLightbox(index));
+    });
+
+    document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox-next').addEventListener('click', showNext);
+    document.querySelector('.lightbox-prev').addEventListener('click', showPrev);
+
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Swipe-Funktionalität
+    lightbox.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          showNext(); // Nach links gewischt = nächstes Bild
+        } else {
+          showPrev(); // Nach rechts gewischt = vorheriges Bild
+        }
+      }
+    }
+
+    // Tastatursteuerung
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
