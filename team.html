@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Das Team | Zenova</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/zenova-logo.png" alt="Zenova" class="logo-img">
+      </a>
+      <button type="button" class="menu-toggle" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <button type="button" class="menu-close" aria-label="Menü schließen">×</button>
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Start</a></li>
+          <li><a href="team.html" class="nav-link active">Das Team</a></li>
+          <li><a href="regelwerk.html" class="nav-link">Regelwerk</a></li>
+          <li><a href="bewerbung.html" class="nav-link">Bewerbung</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <h1>Das Team</h1>
+      </div>
+    </section>
+    <section class="section section-page section-alt section--full">
+      <div class="container">
+        <p class="section-text">Hier findest du unser Team.</p>
+        <div class="team-grid">
+          <div class="team-card">
+            <img src="images/team-kyo.png" alt="Kyo" class="team-img team-img--head">
+            <p class="team-name">Kyo</p>
+            <p class="team-role">Owner</p>
+          </div>
+          <div class="team-card">
+            <img src="images/team2.jpg" alt="TitaniumOreZ" class="team-img">
+            <p class="team-name">TitaniumOreZ</p>
+            <p class="team-role">Host</p>
+            <p class="team-role">Stellvertreter</p>
+          </div>
+          <div class="team-card">
+            <img src="images/team3.jpg" alt="SpiffyBead" class="team-img">
+            <p class="team-name">SpiffyBead</p>
+            <p class="team-role">Stellvertreter</p>
+          </div>
+          <div class="team-card">
+            <img src="images/team4.jpg" alt="PerryDasSchnabeltier" class="team-img">
+            <p class="team-name">PerryDasSchnabeltier</p>
+            <p class="team-role">Developer</p>
+          </div>
+          <div class="team-card">
+            <img src="images/team5.jpg" alt="Moutain_goat" class="team-img">
+            <p class="team-name">Moutain_goat</p>
+            <p class="team-role">Head Moderator</p>
+          </div>
+          <div class="team-card">
+            <img src="images/team6.jpg" alt="Flix_Jack" class="team-img">
+            <p class="team-name">Flix_Jack</p>
+            <p class="team-role">Moderator</p>
+          </div>
+          <div class="team-card">
+            <img src="images/team7.jpg" alt="TechiRusch" class="team-img">
+            <p class="team-name">TechiRusch</p>
+            <p class="team-role">Moderator</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Zenova</p>
+      <a href="mailto:zenova@play-zenova.de" class="footer-email">zenova@play-zenova.de</a>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 by Zenova</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.body.classList.add('menu-open');
+    });
+    document.querySelector('.menu-close').addEventListener('click', function() {
+      document.body.classList.remove('menu-open');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regelwerk | Zenova</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/zenova-logo.png" alt="Zenova" class="logo-img">
+      </a>
+      <button type="button" class="menu-toggle" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <button type="button" class="menu-close" aria-label="Menü schließen">×</button>
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Start</a></li>
+          <li><a href="team.html" class="nav-link">Das Team</a></li>
+          <li><a href="regelwerk.html" class="nav-link active">Regelwerk</a></li>
+          <li><a href="bewerbung.html" class="nav-link">Bewerbung</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <h1>Regelwerk</h1>
+      </div>
+    </section>
+    <section class="section section-page section-alt section--full">
+      <div class="container container--text">
+        <img src="images/regelwerk.jpg" alt="" class="page-img">
+        <h2 class="regelwerk-title">Server-Regeln</h2>
+        <p class="regelwerk-intro">Diese Regeln sorgen für ein respektvolles und strukturiertes Miteinander. Verstöße können zu Sanktionen führen.</p>
+
+        <div class="regelwerk-block">
+          <h3>1. Verhalten</h3>
+          <ul class="regelwerk-list">
+            <li>Respektvoller Umgang ist Pflicht.</li>
+            <li>Keine Beleidigungen, Diskriminierung oder Hassrede.</li>
+            <li>Provokationen, Trolling und Mobbing sind untersagt.</li>
+          </ul>
+        </div>
+
+        <div class="regelwerk-block">
+          <h3>2. Spam & Störungen</h3>
+          <ul class="regelwerk-list">
+            <li>Kein Spam oder Nachrichtenflut.</li>
+            <li>Keine Ghost-Pings oder übermäßiger Capslock.</li>
+            <li>Im Voice-Chat keine absichtlichen Störungen oder Soundboard-Spam.</li>
+          </ul>
+        </div>
+
+        <div class="regelwerk-block">
+          <h3>3. Inhalte</h3>
+          <ul class="regelwerk-list">
+            <li>Keine pornografischen, extremistischen oder illegalen Inhalte.</li>
+            <li>Avatare, Nicknames und Profile müssen regelkonform sein.</li>
+            <li>Keine schädlichen oder betrügerischen Links.</li>
+          </ul>
+        </div>
+
+        <div class="regelwerk-block">
+          <h3>4. Kanäle & Struktur</h3>
+          <ul class="regelwerk-list">
+            <li>Kanäle nur für ihren vorgesehenen Zweck nutzen.</li>
+            <li>Off-Topic gehört in die entsprechenden Bereiche.</li>
+            <li>Aufnahmen im Voice nur mit Zustimmung aller Beteiligten.</li>
+          </ul>
+        </div>
+
+        <div class="regelwerk-block">
+          <h3>5. Werbung</h3>
+          <ul class="regelwerk-list">
+            <li>Werbung jeglicher Art ist ohne Genehmigung untersagt.</li>
+            <li>Keine Discord-Invites, Eigenwerbung oder Recruitment ohne Erlaubnis.</li>
+          </ul>
+        </div>
+
+        <div class="regelwerk-block">
+          <h3>6. Moderation</h3>
+          <ul class="regelwerk-list">
+            <li>Anweisungen des Server-Teams sind zu befolgen.</li>
+            <li>Strafen reichen von Verwarnung bis Bann.</li>
+            <li>Regelverstöße bitte mit Beweisen melden.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Zenova</p>
+      <a href="mailto:zenova@play-zenova.de" class="footer-email">zenova@play-zenova.de</a>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 by Zenova</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.body.classList.add('menu-open');
+    });
+    document.querySelector('.menu-close').addEventListener('click', function() {
+      document.body.classList.remove('menu-open');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+Bilder in diesem Ordner
+======================
+
+Bereits vorhanden:
+- zenova-logo.png   → Logo im Header (alle Seiten)
+- hero-bg.png       → Hintergrundbild auf der Startseite
+
+Optional – kannst du selbst ergänzen:
+- team1.jpg, team2.jpg, team3.jpg  → Fotos für die Team-Seite (quadratisch, z. B. 400×400 px)
+- regelwerk.jpg                    → Bild auf der Regelwerk-Seite
+- bewerbung.jpg                    → Bild auf der Bewerbung-Seite
+
+Wenn die optionalen Dateien fehlen, werden die Platzhalter leer oder mit einem Icon angezeigt. Einfach passende Bilder hier ablegen (gleicher Dateiname).

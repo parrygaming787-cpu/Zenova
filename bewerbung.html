@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bewerbung | Zenova</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/zenova-logo.png" alt="Zenova" class="logo-img">
+      </a>
+      <button type="button" class="menu-toggle" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <button type="button" class="menu-close" aria-label="Menü schließen">×</button>
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Start</a></li>
+          <li><a href="team.html" class="nav-link">Das Team</a></li>
+          <li><a href="regelwerk.html" class="nav-link">Regelwerk</a></li>
+          <li><a href="bewerbung.html" class="nav-link active">Bewerbung</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <h1>Bewerbung</h1>
+      </div>
+    </section>
+    <section class="section section-page section-alt section--full">
+      <div class="container container--text">
+        <img src="images/bewerbung.jpg" alt="" class="page-img">
+
+        <p class="intro-text">Du willst dich bewerben?</p>
+        <p>Du willst dich als Teammitglied bewerben? Kein Problem!</p>
+
+        <h2>Bewirb dich als folgendes:</h2>
+        <ul class="bewerbung-list">
+          <li>Builder</li>
+          <li>Supporter (erstmal Probe)</li>
+          <li>Developer (nur hocharbeitbar von Probe Supporter)</li>
+          <li>Moderator (nur hocharbeitbar von Probe Supporter)</li>
+          <li>Werbeperson (Werbung)</li>
+        </ul>
+
+        <p>Du bist Content Creator und möchtest diesen Rang auf dem Server? Dann bist du hier genau richtig!</p>
+
+        <h2>Bewirb dich als:</h2>
+        <ul class="bewerbung-list">
+          <li>Content Creator</li>
+        </ul>
+
+        <p>Bei Fragen wende dich bitte an folgende Personen auf Discord:</p>
+        <ul class="bewerbung-list discord-list">
+          <li>Kyo (o0kyo0o)</li>
+          <li>TitaniumOreZ (titaniumorez)</li>
+          <li>SpiffyBead (siffybead)</li>
+          <li>Moutain_goat (kiki_frosch_19154)</li>
+          <li>TechiRush (techirusch)</li>
+        </ul>
+
+        <h2>Bitte beantworte in deiner Bewerbung folgendes:</h2>
+        <ul class="bewerbung-list">
+          <li>Stelle dich bitte ausführlich vor.</li>
+          <li>Hast du bereits Erfahrung?</li>
+          <li>Warum sollten wir dich nehmen?</li>
+        </ul>
+
+        <p>Wir kontaktieren dich per Discord. Bitte achte also auf deine Freundschaftsanfragen.</p>
+        <p class="outro-text">Wir freuen uns auf dich!</p>
+
+        <div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+        <form id="bewerbung-form" class="bewerbung-form" method="post" action="send-bewerbung.php">
+          <div class="form-group">
+            <label for="vorstellung">Bitte stelle dich ausführlich vor!</label>
+            <textarea id="vorstellung" name="vorstellung" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="erfahrung">Hast du schon Erfahrungen?</label>
+            <textarea id="erfahrung" name="erfahrung" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="warum">Warum sollten wir dich nehmen?</label>
+            <textarea id="warum" name="warum" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="rolle">Als was möchtest du dich bewerben?</label>
+            <input type="text" id="rolle" name="rolle" required>
+          </div>
+          <div class="form-group">
+            <label for="discord">Wie lautet dein Discordname?</label>
+            <input type="text" id="discord" name="discord" required>
+          </div>
+          <button type="submit" class="btn-submit">Bewerbung abschicken</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Zenova</p>
+      <a href="mailto:zenova@play-zenova.de" class="footer-email">zenova@play-zenova.de</a>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 by Zenova</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.body.classList.add('menu-open');
+    });
+    document.querySelector('.menu-close').addEventListener('click', function() {
+      document.body.classList.remove('menu-open');
+    });
+
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var msg = document.getElementById('form-message');
+      if (params.get('sent') === '1') {
+        msg.className = 'form-message form-message--success';
+        msg.textContent = 'Vielen Dank! Deine Bewerbung wurde gesendet. Wir melden uns per Discord.';
+      } else if (params.get('error') === '1') {
+        msg.className = 'form-message form-message--error';
+        msg.textContent = 'Beim Senden ist etwas schiefgelaufen. Bitte schreib uns direkt an zenova@play-zenova.de.';
+      }
+    })();
+  </script>
+</body>
+</html>
